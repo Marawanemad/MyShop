@@ -10,6 +10,7 @@ class Window extends StatefulWidget {
 
 class _Window extends State<Window> {
   int num = 0;
+  bool flag = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +23,10 @@ class _Window extends State<Window> {
           IconButton(
               icon: const Icon(Icons.favorite_border, color: Colors.white),
               onPressed: () {
-                Colors.red;
+                flag = !flag;
+                setState(() {
+                  flag == false ? Colors.white : Colors.red;
+                });
               }),
           Text(
             widget.word,
@@ -43,7 +47,10 @@ class _Window extends State<Window> {
             fillColor: const Color(0xFF4C4F5E),
             shape: const CircleBorder(side: BorderSide.none),
             onPressed: () {
-              minus(num);
+              setState(() {
+                num--;
+                if (num < 0) num = 0;
+              });
             },
             child: const Icon(
               Icons.remove,
@@ -59,7 +66,9 @@ class _Window extends State<Window> {
             fillColor: const Color(0xFF4C4F5E),
             shape: const CircleBorder(side: BorderSide.none),
             onPressed: () {
-              add(num);
+              setState(() {
+                num++;
+              });
             },
             child: const Icon(
               Icons.add,
@@ -70,12 +79,4 @@ class _Window extends State<Window> {
       ]),
     );
   }
-}
-
-int minus(int num) {
-  return num--;
-}
-
-int add(int num) {
-  return num++;
 }
