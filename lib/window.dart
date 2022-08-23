@@ -10,22 +10,22 @@ class Window extends StatefulWidget {
 
 class _Window extends State<Window> {
   int num = 0;
-  bool flag = false;
+  bool fav = true;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(30.0),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
           color: const Color(0xff1e152f)),
       child: Column(children: [
         Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           IconButton(
               icon: const Icon(Icons.favorite_border, color: Colors.white),
               onPressed: () {
-                flag = !flag;
                 setState(() {
-                  flag == false ? Colors.white : Colors.red;
+                  fav = !fav;
+                  fav ? Colors.red : Colors.white;
                 });
               }),
           Text(
@@ -49,7 +49,9 @@ class _Window extends State<Window> {
             onPressed: () {
               setState(() {
                 num--;
-                if (num < 0) num = 0;
+                if (num < 0) {
+                  num = 0;
+                }
               });
             },
             child: const Icon(
