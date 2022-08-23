@@ -21,22 +21,23 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.purple[900],
-        appBar: AppBar(
-          backgroundColor: Colors.deepPurple[800],
-          title: const Text("My Shop",
-              style: TextStyle(color: Colors.white, fontSize: 25)),
+      backgroundColor: Colors.purple[900],
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple[800],
+        title: const Text("My Shop",
+            style: TextStyle(color: Colors.white, fontSize: 25)),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: const [
+            Window('Shoes'),
+            Window('T-Shirt'),
+            Window('Pants'),
+          ],
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
-              Window('Shoes'),
-              Window('T-Shirt'),
-              Window('Pants'),
-            ],
-          ),
-        ));
+      ),
+    );
   }
 }
